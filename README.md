@@ -23,16 +23,16 @@ Your team members are white circles while the opponent team members are blue cir
 
 ## Screens
 1. Main menu  
-<img src="https://github.com/MananSoni42/Fifa-42/blob/old/assets/menu1.png" height=150px> <img src="https://github.com/MananSoni42/Fifa-42/blob/old/assets/menu2.png" height=150px> <img src="https://github.com/MananSoni42/Fifa-42/blob/old/assets/menu3.png" height=150px>
+<img src="https://github.com/MananSoni42/Fifa-42/blob/legacy/assets/menu1.png" height=150px> <img src="https://github.com/MananSoni42/Fifa-42/blob/legacy/assets/menu2.png" height=150px> <img src="https://github.com/MananSoni42/Fifa-42/blob/legacy/assets/menu3.png" height=150px>
 
 2. Instructions (interactive)
-<img src="https://github.com/MananSoni42/Fifa-42/blob/old/assets/instructions.png" height=250px>
+<img src="https://github.com/MananSoni42/Fifa-42/blob/legacy/assets/instructions.png" height=250px>
 
 3. Game
-<img src="https://github.com/MananSoni42/Fifa-42/blob/old/assets/game.png" height=250px>
+<img src="https://github.com/MananSoni42/Fifa-42/blob/legacy/assets/game.png" height=250px>
 
 4. Pause menu
-<img src="https://github.com/MananSoni42/Fifa-42/blob/old/assets/pause_menu.png" height=250px>
+<img src="https://github.com/MananSoni42/Fifa-42/blob/legacy/assets/pause_menu.png" height=250px>
 
 
 ## Developers
