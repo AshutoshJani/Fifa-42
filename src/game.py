@@ -194,8 +194,7 @@ class Game:
         Display the current score (goals for each side)
         """
         #""" Show game score """
-        goal1_rect = (W//2 - GOAL_DISP_SIZE - 2*LINE_WIDTH,
-                      0, GOAL_DISP_SIZE, GOAL_DISP_SIZE)
+        goal1_rect = (W//2 - GOAL_DISP_SIZE - 2*LINE_WIDTH, 0, GOAL_DISP_SIZE, GOAL_DISP_SIZE)
         goal2_rect = (W//2 + 2*LINE_WIDTH, 0, GOAL_DISP_SIZE, GOAL_DISP_SIZE)
         goal_font = pygame.font.Font(FONT_ROBOTO, FONT_SIZE)
 
@@ -210,11 +209,26 @@ class Game:
         scale_rect = lambda x,y,w,h: (OVER_TOP_LEFT.x + x*OVER_SIZE.x//W, OVER_TOP_LEFT.y + y*OVER_SIZE.y//H, w*OVER_SIZE.x//W, h*OVER_SIZE.y//H)
         scale_pt = lambda x,y: (OVER_TOP_LEFT.x + x*OVER_SIZE.x//W, OVER_TOP_LEFT.y + y*OVER_SIZE.y//H)
 
-        pygame.draw.rect(win, (0, 136, 3, 100), scale_rect(0,0,W,H))
-        pygame.draw.rect(win, (255,255,255), scale_rect(0,0,W,H), LINE_WIDTH)
+        r = scale_rect(0,0,W,H)
+        s = pygame.Surface((r[2],r[3]), pygame.SRCALPHA)
+        s.fill((0,0,0,75))
+        win.blit(s, (r[0],r[1]))
+        #pygame.draw.rect(win, (0, 136, 3, 100), r)
+        pygame.draw.rect(win, (255,255,255), r, LINE_WIDTH)
+
         pygame.draw.rect(win, (255,255,255),
             scale_rect(self.cam.c.x - self.cam.params['pt'].x//2, self.cam.c.y - self.cam.params['pt'].y//2,
             self.cam.params['pt'].x, self.cam.params['pt'].y), LINE_WIDTH)
+
+        pygame.draw.rect(win, (255, 255, 255), scale_rect(0.95*W-LINE_WIDTH//2,
+                                                GOAL_POS[0]*H, 0.05*W, (GOAL_POS[1]-GOAL_POS[0])*H), LINE_WIDTH)  # right penalty
+        pygame.draw.rect(win, (255, 255, 255), scale_rect(LINE_WIDTH//2,
+                                                GOAL_POS[0]*H, 0.05*W, (GOAL_POS[1]-GOAL_POS[0])*H), LINE_WIDTH)  # left penalty
+
+        pygame.draw.rect(win, self.team2.color,scale_rect(W - 3*LINE_WIDTH,
+                                                 GOAL_POS[0]*H, 3*LINE_WIDTH, (GOAL_POS[1]-GOAL_POS[0])*H))  # right goal
+        pygame.draw.rect(win, self.team1.color,scale_rect(0,
+                                                 GOAL_POS[0]*H, 3*LINE_WIDTH, (GOAL_POS[1]-GOAL_POS[0])*H))  # left goal
 
         pygame.draw.rect(win, (255, 255, 255),
                          scale_rect(W//2 - LINE_WIDTH//2, 0, LINE_WIDTH, H))  # mid line
@@ -222,11 +236,11 @@ class Game:
 
         for player in self.team1.players:
             pygame.draw.circle(win, self.team1.color, scale_pt(*player.pos.val),
-                               PLAYER_RADIUS//3)
+                               PLAYER_RADIUS//4)
 
         for player in self.team2.players:
             pygame.draw.circle(win, self.team2.color, scale_pt(*player.pos.val),
-                               PLAYER_RADIUS//3)
+                               PLAYER_RADIUS//4)
 
             pygame.draw.circle(win, (42,42,42), scale_pt(*(self.ball.pos + PLAYER_CENTER).val),
                                BALL_RADIUS)

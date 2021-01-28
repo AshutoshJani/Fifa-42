@@ -28,9 +28,9 @@ renderer:
       - title: Stats
         contents:
         - 'stats.Stats.*'
-      - title: Point
+      - title: Camera
         contents:
-        - 'point.P.*'
+        - 'camera.Camera.*'
       - title: Agent
         contents:
         - 'agent.Agent.*'
@@ -42,6 +42,16 @@ renderer:
         - 'random.*'
         - 'human.*'
         - 'original_ai.*'
+        - 'network.*'
+      - title: Settings
+        contents:
+        - 'settings.*'
+      - title: Constants
+        contents:
+        - 'const.*'
+      - title: Point
+        contents:
+        - 'point.P.*'
   mkdocs_config:
     site_name: Fifa-42
     #theme: readthedocs
